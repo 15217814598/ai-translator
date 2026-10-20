@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>译流 · 设置</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="seal" aria-hidden="true">译</div>
+      <div>
+        <h1>译流 · 设置</h1>
+        <p>所有配置仅保存在本机浏览器中，翻译时直接从浏览器请求你的接口。</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2><span class="idx">01</span>接口</h2>
+
+        <label class="field">
+          <span class="field-label">接口地址（OpenAI 兼容 Base URL）</span>
+          <input id="baseUrl" type="text" placeholder="https://api.openai.com/v1" spellcheck="false" />
+          <span class="hint">填到 /v1 这一层即可，插件会自动补 /chat/completions。DeepSeek、Moonshot、通义等兼容服务同样适用。</span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">API Key</span>
+          <span class="key-row">
+            <input id="apiKey" type="password" placeholder="sk-..." spellcheck="false" autocomplete="off" />
+            <button id="btnToggleKey" class="mini" type="button">显示</button>
+          </span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">模型名称</span>
+          <input id="model" type="text" placeholder="gpt-4o-mini" spellcheck="false" list="modelList" />
+          <datalist id="modelList">
+            <option value="gpt-4o-mini"></option>
+            <option value="gpt-4o"></option>
+            <option value="deepseek-chat"></option>
+            <option value="moonshot-v1-8k"></option>
+            <option value="qwen-plus"></option>
+          </datalist>
+        </label>
+
+        <label class="field">
+          <span class="field-label">创造性（0 = 严谨，1 = 活泼）</span>
+          <span class="temp-row">
+            <input id="temperature" type="range" min="0" max="1" step="0.1" />
+            <output id="tempValue">0.2</output>
+          </span>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2><span class="idx">02</span>翻译</h2>
+
+        <label class="field">
+          <span class="field-label">默认目标语言</span>
+          <select id="targetLang">
+            <option value="zh">中文（简体）</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+          <span class="hint">弹窗与整页翻译默认使用该语言，弹窗里可以随时切换。</span>
+        </label>
+      </section>
+
+      <div class="actions">
+        <button id="btnSave" class="primary">保存设置</button>
+        <button id="btnTest" class="ghost">测试连接</button>
+        <span id="status" class="status" role="status"></span>
+      </div>
+
+      <section class="card usage">
+        <h2><span class="idx">03</span>怎么用</h2>
+        <ol>
+          <li>在网页中<b>选中一段文字</b>，点击出现的红色「译」按钮，译文就地展开。</li>
+          <li>点击工具栏图标打开弹窗，粘贴文字按 <b>Ctrl/⌘ + Enter</b> 翻译。</li>
+          <li>弹窗里点「翻译整页」，整篇网页就地换成译文；「恢复原文」可一键还原。</li>
+          <li>右键菜单提供「译成中文 / Translate to English / 翻译整页」。</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

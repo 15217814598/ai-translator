@@ -1,0 +1,22 @@
+# 依赖
+node_modules/
+package-lock.json
+
+# 构建与打包产物
+*.zip
+dist/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 本地环境
+.env
+.env.local
+*.log
+
+# Python 缓存
+__pycache__/
+*.pyc

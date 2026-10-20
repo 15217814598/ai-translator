@@ -1,0 +1,194 @@
+/* 译流 · 弹窗样式 — 词典条目式版式 */
+
+:root {
+  --paper: #FAF8F4;
+  --card: #FFFFFF;
+  --ink: #1B1E26;
+  --muted: #7A7E8A;
+  --hairline: #E5E0D6;
+  --seal: #C23B22;
+  --pine: #2F5D50;
+  --pine-dark: #254A40;
+  --sans: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --serif: "Songti SC", "STSong", "SimSun", Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 14px 16px 16px;
+}
+
+/* ------------------------------- 页头 ------------------------------- */
+
+.head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+
+.seal {
+  width: 34px; height: 34px; border-radius: 8px; background: var(--seal);
+  color: #fff; font: 700 20px/34px var(--serif); text-align: center; flex: none;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .35);
+}
+
+.brand { flex: 1; }
+
+.brand h1 {
+  font-family: var(--serif); font-size: 18px; font-weight: 700; letter-spacing: .12em;
+}
+
+.brand p {
+  font-size: 9px; color: var(--muted); letter-spacing: .22em; margin-top: 1px;
+}
+
+.gear {
+  border: none; background: none; font-size: 17px; color: var(--muted);
+  cursor: pointer; padding: 4px 6px; border-radius: 6px;
+}
+
+.gear:hover { background: var(--hairline); color: var(--ink); }
+
+/* ------------------------------- 提示条 ------------------------------- */
+
+.banner {
+  background: #FBEAE5; border: 1px solid #F0C9BE; color: #8C2F1B;
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; margin-bottom: 12px;
+}
+
+.banner a { color: var(--seal); font-weight: 600; cursor: pointer; }
+
+.hidden { display: none !important; }
+
+/* ------------------------------- 语言方向 ------------------------------- */
+
+.direction {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  font-size: 12px; color: var(--muted);
+}
+
+.dir-from { letter-spacing: .06em; }
+
+.dir-arrow { color: var(--seal); font-weight: 700; }
+
+.direction select {
+  font-family: var(--sans); font-size: 12px; color: var(--ink);
+  border: 1px solid var(--hairline); border-radius: 6px; background: var(--card);
+  padding: 3px 6px; cursor: pointer; outline: none;
+}
+
+.direction select:focus { border-color: var(--pine); }
+
+/* ------------------------------- 输入区 ------------------------------- */
+
+textarea {
+  width: 100%; resize: vertical; min-height: 76px; max-height: 180px;
+  border: 1px solid var(--hairline); border-radius: 10px; background: var(--card);
+  padding: 10px 12px; font-family: var(--sans); font-size: 13px; line-height: 1.6;
+  color: var(--ink); outline: none;
+}
+
+textarea::placeholder { color: #A8ABB5; }
+
+textarea:focus { border-color: var(--pine); }
+
+.primary {
+  width: 100%; margin-top: 10px; border: none; border-radius: 10px;
+  background: var(--pine); color: #fff; font-size: 14px; font-weight: 600;
+  letter-spacing: .3em; padding: 10px 0; cursor: pointer;
+  transition: background .15s ease;
+}
+
+.primary:hover:not(:disabled) { background: var(--pine-dark); }
+
+.primary:disabled { opacity: .55; cursor: default; }
+
+/* ------------------------------- 译文区 ------------------------------- */
+
+.result {
+  margin-top: 14px; border: 1px solid var(--hairline); border-radius: 10px;
+  background: var(--card); overflow: hidden;
+}
+
+.result-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 12px; border-bottom: 1px solid var(--hairline); background: #F5F2EB;
+}
+
+.label {
+  font-size: 10px; letter-spacing: .2em; color: var(--muted);
+}
+
+.meta { font-size: 11px; color: var(--muted); }
+
+.result-text {
+  font-family: var(--serif); font-size: 15px; line-height: 1.8;
+  padding: 12px; min-height: 64px; max-height: 220px; overflow-y: auto;
+  white-space: pre-wrap; word-break: break-word;
+}
+
+.result-text.placeholder {
+  font-family: var(--sans); font-size: 12px; color: #A8ABB5;
+}
+
+.result-text.error { font-family: var(--sans); font-size: 12.5px; color: var(--seal); }
+
+.result-text a { color: var(--pine); cursor: pointer; text-decoration: underline; }
+
+/* --------------------------- 整页翻译按钮 --------------------------- */
+
+.page-row { display: flex; gap: 8px; margin-top: 10px; }
+
+.ghost {
+  flex: 1; border: 1px solid var(--hairline); border-radius: 8px; background: var(--card);
+  color: var(--ink); font-size: 12px; padding: 7px 0; cursor: pointer;
+}
+
+.ghost:hover { border-color: var(--pine); color: var(--pine); }
+
+.ghost:disabled { opacity: .5; cursor: default; }
+
+/* ------------------------------- 历史 ------------------------------- */
+
+.history { margin-top: 14px; }
+
+.history-head {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;
+}
+
+.text-btn {
+  border: none; background: none; font-size: 11px; color: var(--muted); cursor: pointer;
+}
+
+.text-btn:hover { color: var(--seal); }
+
+.history-list { list-style: none; }
+
+.history-list li {
+  border-bottom: 1px dashed var(--hairline);
+}
+
+.history-list li:last-child { border-bottom: none; }
+
+.history-item {
+  width: 100%; text-align: left; border: none; background: none; cursor: pointer;
+  padding: 6px 2px; font-family: var(--sans);
+}
+
+.history-item:hover .h-src { color: var(--seal); }
+
+.h-src {
+  display: block; font-size: 12px; color: var(--ink); line-height: 1.5;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.h-dst {
+  display: block; font-family: var(--serif); font-size: 12px; color: var(--muted);
+  line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.history-empty { font-size: 12px; color: #A8ABB5; padding: 6px 2px; }
